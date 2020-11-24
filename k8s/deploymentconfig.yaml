@@ -1,21 +1,21 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: qotd
+  name: spring-boot-data-jpa-mysql
   labels:
-    app: qotd
+    app: spring-boot-data-jpa-mysql
 spec:
   selector:
-    app: qotd
+    app: spring-boot-data-jpa-mysql
   replicas: 1
   template:
     metadata:
       labels:
-        app: qotd
+        app: spring-boot-data-jpa-mysql
     spec:
       containers:
-        - name: qotd
-          image: image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/qotd:latest
+        - name: spring-boot-data-jpa-mysql
+          image: image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/spring-boot-data-jpa-mysql:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 10000
@@ -25,8 +25,8 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - qotd
+      - spring-boot-data-jpa-mysql
       from:
         kind: ImageStreamTag
-        name: qotd:latest
+        name: spring-boot-data-jpa-mysql:latest
     type: ImageChange
