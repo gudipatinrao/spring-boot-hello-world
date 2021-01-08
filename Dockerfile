@@ -1,11 +1,9 @@
-FROM openliberty/open-liberty:kernel-slim-java8-ibmjava-ubi as staging
-USER 0
+FROM openjdk:14-jdk-alpine
 
-RUN features.sh
-
-COPY --chown=1001:0 ./target/spring-boot-helloworld-0.0.1-SNAPSHOT.jar /config/dropins/spring/thinClinic.jar
-
+COPY /target/spring-boot-helloworld-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
 ARG VERBOSE=true
-RUN configure.sh
+
 
 
