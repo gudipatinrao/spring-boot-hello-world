@@ -1,6 +1,6 @@
 FROM openliberty/open-liberty:springBoot2-ubi-min as staging
 
-COPY --chown=1001:0 --from=builder /target/spring-boot-data-jpa-0.0.1-SNAPSHOT.jar /staging/fatClinic.jar
+COPY --chown=1001:0 /target/spring-boot-data-jpa-0.0.1-SNAPSHOT.jar /staging/fatClinic.jar
 
 RUN springBootUtility thin \
  --sourceAppPath=/staging/fatClinic.jar \
