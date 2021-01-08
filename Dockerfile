@@ -1,5 +1,6 @@
 FROM openliberty/open-liberty:kernel-slim-java8-ibmjava-ubi as staging
 USER 0
+RUN yum -y update && yum clean all
 RUN features.sh
 COPY --chown=1001:0 ./target/spring-boot-data-jpa-0.0.1-SNAPSHOT.jar /staging/fatClinic.jar
 
