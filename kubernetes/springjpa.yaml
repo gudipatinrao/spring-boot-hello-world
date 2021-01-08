@@ -42,7 +42,7 @@ metadata:
     app: springjpa
 spec:
   port:
-    targetPort: 10000-tcp
+    targetPort: 8080
   to:
     kind: Service
     name: springjpa
