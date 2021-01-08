@@ -37,9 +37,9 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
+  name: springjpa
   labels:
     app: springjpa
-    name: springjpa
 spec:
   port:
     targetPort: 10000-tcp
