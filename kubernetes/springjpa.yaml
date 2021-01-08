@@ -34,7 +34,7 @@ spec:
     app: springjpa
   type: NodePort
 ---
-apiVersion: route.openshift.io/v1
+apiVersion: v1
 kind: Route
 metadata:
   name: springjpa
